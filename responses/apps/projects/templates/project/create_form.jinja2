@@ -1,0 +1,5 @@
+{% extends 'base.jinja2' %}
+
+{% block content %}
+	{{ crispy(form, form.helper)|safe }}
+{% endblock %}

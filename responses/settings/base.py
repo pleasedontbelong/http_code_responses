@@ -32,6 +32,7 @@ DEBUG = True
 TEMPLATE_DEBUG = True
 
 TEMPLATE_LOADERS = (
+    'jingo.Loader',
     'django.template.loaders.filesystem.Loader',
     'django.template.loaders.app_directories.Loader',
 )
@@ -50,7 +51,10 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django_extensions',
     'pipeline',
+    'responses.core',
+    'crispy_forms',
     'base',
+    'projects',
     'south'
 )
 
@@ -132,3 +136,9 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.AllowAny'
     ]
 }
+
+# Jinja2
+JINGO_INCLUDE_PATTERN = r'\.jinja2'
+
+# Crispy forms
+CRISPY_TEMPLATE_PACK = 'bootstrap'
