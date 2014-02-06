@@ -102,6 +102,7 @@ PIPELINE_CSS = {
     'main-css': {
         'source_filenames': (
             'css/main.css',
+            'vendors/bootstrap/css/bootstrap.css',
         ),
         'output_filename': 'compress/css/main.min.css',
         'extra_context': {
@@ -115,6 +116,7 @@ PIPELINE_JS = {
     'main-js': {
         'source_filenames': (
             'js/main.js',
+            'vendors/bootstrap/js/bootstrap.js',
         ),
         'output_filename': 'compress/js/main.min.js',
     },
@@ -139,6 +141,14 @@ REST_FRAMEWORK = {
 
 # Jinja2
 JINGO_INCLUDE_PATTERN = r'\.jinja2'
+JINJA_CONFIG = {
+    'autoescape': False,
+    'extensions': [
+        'jinja2.ext.i18n',
+        'jinja2.ext.with_',
+        'pipeline.jinja2.ext.PipelineExtension'
+    ]
+}
 
 # Crispy forms
 CRISPY_TEMPLATE_PACK = 'bootstrap'

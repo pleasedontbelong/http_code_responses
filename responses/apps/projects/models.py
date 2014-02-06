@@ -9,7 +9,10 @@ class Project(models.Model):
         (3, 'FINISHED', 'Finished'),
     )
     urls = models.TextField(help_text="List of urls, one each line", null=False)
-    email = models.EmailField(help_text="email to prevent you when taks is finished", null=False)
-    status = models.PositiveSmallIntegerField(choices=STATUS_CHOICES)
+    email = models.EmailField(help_text="email to prevent you when the task is finished", null=False)
+    status = models.PositiveSmallIntegerField(choices=STATUS_CHOICES, default=STATUS_CHOICES.CREATED)
     created = models.DateTimeField(auto_now_add=True)
     ended = models.DateTimeField(null=True, blank=True)
+
+    def __unicode__(self):
+        return "%d-%s" % (self.pk, self.email)
