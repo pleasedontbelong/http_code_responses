@@ -15,8 +15,10 @@ class ProjectCreateView(CreateView):
     form_class = ProjectCreateForm
 
     def get_success_url(self):
-        # Return the reversed success url.
         return reverse('project_create')
+
+    def form_valid(self, *args, **kwargs):
+        return super(ProjectCreateView, self).form_valid(*args, **kwargs)
 
 
 class ProjectResultsView(DetailView):

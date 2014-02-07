@@ -50,6 +50,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django_extensions',
+    'celery',
     'pipeline',
     'responses.core',
     'crispy_forms',
@@ -152,3 +153,7 @@ JINJA_CONFIG = {
 
 # Crispy forms
 CRISPY_TEMPLATE_PACK = 'bootstrap'
+
+# celery
+BROKER_URL = 'redis://localhost:6379/0'
+CELERY_RESULT_BACKEND = 'redis://localhost:6379/0'
