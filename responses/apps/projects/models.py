@@ -15,4 +15,4 @@ class Project(models.Model):
     ended = models.DateTimeField(null=True, blank=True)
 
     def __unicode__(self):
-        return "%d-%s" % (self.pk, self.email)
+        return "%s-%s" % (self.pk, self.email)

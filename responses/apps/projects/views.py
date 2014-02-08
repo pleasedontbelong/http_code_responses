@@ -4,6 +4,7 @@ from responses.core.generic import CreateView, DetailView
 
 from .models import Project
 from .forms import ProjectCreateForm
+from .tasks import check_urls_task
 
 
 class ProjectCreateView(CreateView):
@@ -15,10 +16,8 @@ class ProjectCreateView(CreateView):
     form_class = ProjectCreateForm
 
     def get_success_url(self):
+        check_urls_task.delay(self.object.pk)
         return reverse('project_create')
-
-    def form_valid(self, *args, **kwargs):
-        return super(ProjectCreateView, self).form_valid(*args, **kwargs)
 
 
 class ProjectResultsView(DetailView):
