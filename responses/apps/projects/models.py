@@ -8,9 +8,9 @@ class Project(models.Model):
         (2, 'RUNNING', 'TASK RUNNING'),
         (3, 'FINISHED', 'Finished'),
     )
-    urls = models.TextField(help_text="List of urls, one each line", null=False)
+    urls = models.TextField(help_text="List of urls you want to check (one each line)", null=False)
     results = models.TextField(null=True)
-    email = models.EmailField(help_text="email to prevent you when the task is finished", null=False)
+    email = models.EmailField(help_text="We'll send you an e-mail when the task is finished", null=False)
     status = models.PositiveSmallIntegerField(choices=STATUS_CHOICES, default=STATUS_CHOICES.CREATED)
     created = models.DateTimeField(auto_now_add=True)
     ended = models.DateTimeField(null=True, blank=True)

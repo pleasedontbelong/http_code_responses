@@ -12,5 +12,7 @@ class ProjectCreateForm(forms.ModelForm):
         fields = ['urls', 'email']
 
     def __init__(self, *args, **kwargs):
-        self.helper = SimpleFormHelper("Create")
+        self.helper = SimpleFormHelper("Check Status")
+        self.helper.form_class = 'form-group'
+        self.helper.attrs = {'role': 'form'}
         super(ProjectCreateForm, self).__init__(*args, **kwargs)

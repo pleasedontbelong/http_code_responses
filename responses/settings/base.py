@@ -152,7 +152,7 @@ JINJA_CONFIG = {
 }
 
 # Crispy forms
-CRISPY_TEMPLATE_PACK = 'bootstrap'
+CRISPY_TEMPLATE_PACK = 'bootstrap3'
 
 # celery
 BROKER_URL = 'redis://localhost:6379/0'

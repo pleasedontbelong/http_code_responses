@@ -1,41 +1,71 @@
 <!DOCTYPE html>
-<html>
-    <head>
-    {% block head %}
-        <title>{% block title %}HTTP code responses{% endblock %}</title>
-        <meta name="description" content="{% block description %}{% endblock %}">
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-        {% compressed_css "main-css" %}
+    <title>Starter Template for Bootstrap</title>
 
-        {% block extra_head %}{% endblock %}
+    <!-- Bootstrap core CSS -->
+    {% compressed_css "main-css" %}
 
-    {% endblock %}
-    </head>
-    <body>
-        <div class="site">
-            {% if messages %}
-            <ul class="messages">
-                {% for message in messages %}
-                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-                {% endfor %}
-            </ul>
-            {% endif %}
-            {% block content %}
-            {% endblock %}
+    <!-- Custom styles for this template -->
+
+    <!-- Just for debugging purposes. Don't actually copy this line! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+  </head>
+
+  <body>
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">HTTP Status Code Checker</a>
         </div>
-        
-        {% block default_javascript %}
-          <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-          <!--[if lt IE 7 ]>
-          <script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.2/CFInstall.min.js"></script>
-          <script>window.attachEvent("onload",function(){CFInstall.check({mode:"overlay"})})</script>
-          <![endif]-->
-        {% endblock %}
-        
-        {% block extra_javascript %}
-        {% endblock %}
-    </body>
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="http://www.pabloleanomartinet.com">About Me</a></li>
+            <li><a href="https://github.com/pleasedontbelong/http_code_responses">GitHub</a></li>
+            <li><a href="https://www.botify.com">Botify</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
 
+    <div class="container">
+        <div class="site-content">
+        {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        {% block content %}
+        {% endblock %}
+        </div>
+    </div><!-- /.container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    {% compressed_js "main-js" %}
+    </body>
 </html>
