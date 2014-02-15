@@ -1,4 +1,8 @@
 from django.utils import timezone
+from django.core.mail import EmailMessage
+from django.conf import settings
+from django.template import loader, Context
+
 from celery.task.base import task
 
 from .models import Project
@@ -25,3 +29,15 @@ def check_urls_task(project_id):
     project.ended = timezone.now()
     project.results = out
     project.save(update_fields=['status', 'ended', 'results'])
+
+    # send email
+    template = loader.get_template('project/email.html')
+    email_context = Context({'project': project})
+    msg = EmailMessage(
+        "Your results are ready!",
+        template.render(email_context),
+        settings.SERVER_EMAIL,
+        [project.email]
+    )
+    msg.content_subtype = "html"
+    msg.send()

@@ -160,3 +160,11 @@ CELERY_RESULT_BACKEND = 'redis://localhost:6379/0'
 
 # projects
 MAX_URL_CHECK = 300
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'in.mailjet.com'
+EMAIL_HOST_USER = '770bc6d414d99b33dd5acc845a9ae3a8'
+EMAIL_HOST_PASSWORD = 'c21ac5815aae3f9db7a25f0947b25628'
+SERVER_EMAIL = 'noreply@pabloleanomartinet.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
