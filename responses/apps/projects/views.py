@@ -1,4 +1,5 @@
 from django.core.urlresolvers import reverse
+from django.conf import settings
 
 from responses.core.generic import CreateView, DetailView
 
@@ -18,6 +19,11 @@ class ProjectCreateView(CreateView):
     def get_success_url(self):
         check_urls_task.delay(self.object.pk)
         return reverse('project_create')
+
+    def get_context_data(self, *args, **kwargs):
+        context = super(ProjectCreateView, self).get_context_data(*args, **kwargs)
+        context['MAX_URL_CHECK'] = settings.MAX_URL_CHECK
+        return context
 
 
 class ProjectResultsView(DetailView):

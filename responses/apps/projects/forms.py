@@ -1,4 +1,6 @@
 from django import forms
+from django.conf import settings
+from django.utils.translation import ugettext_lazy as _
 
 from .models import Project
 
@@ -16,3 +18,8 @@ class ProjectCreateForm(forms.ModelForm):
         self.helper.form_class = 'form-group'
         self.helper.attrs = {'role': 'form'}
         super(ProjectCreateForm, self).__init__(*args, **kwargs)
+
+    def clean_urls(self):
+        if self.cleaned_data['urls'].strip().count('\r') > settings.MAX_URL_CHECK:
+            raise forms.ValidationError(_('You can not check more than %d urls') % settings.MAX_URL_CHECK)
+        return self.cleaned_data['urls']
