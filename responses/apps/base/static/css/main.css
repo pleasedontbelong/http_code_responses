@@ -1,8 +1,54 @@
 body {
-	padding-top: 50px;
 	background: url("../images/p1.png") repeat 0 0;
+	font-family: 'Chivo', sans-serif;
+	font-size: 18px;
+	padding-bottom: 100px;
 }
 
-.site-content{
-	padding: 20px;
+.navbar-fixed-top{
+	position: absolute;
+	margin-bottom: 0;
+	opacity: 0.9;
+	padding: 20px 0;
+}
+
+.navbar-fixed-top a{
+	color: #fff;
+}
+
+h1{
+	font-size: 90px;
+	font-weight: bold;
+	text-transform: uppercase;
+	margin-bottom: 40px;
+}
+
+section.title{
+	padding-top: 150px;
+	padding-bottom: 40px;
+	background-color: #FEDB02;
+	color: #fff;
+	text-align: center;
+	margin-bottom: 20px;
+	text-shadow: 5px 5px 2px rgba(150, 150, 150, 1);
+}
+
+section.title h2{
+	text-shadow: 2px 2px 2px rgba(150, 150, 150, 1);
+}
+
+section.form{
+	padding: 20px 10%;
+}
+
+section.success{
+	text-align: center;
+	font-size: 24px;
+	padding: 100px 0	;
+	color: #62c462;
+}
+
+section.success h2{
+	font-size: 60px;
+	font-weight: bold;
 }
