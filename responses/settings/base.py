@@ -102,8 +102,8 @@ STATICFILES_FINDERS = (
 PIPELINE_CSS = {
     'main-css': {
         'source_filenames': (
-            'css/main.css',
             'vendors/bootstrap/css/bootstrap.css',
+            'css/main.css'
         ),
         'output_filename': 'compress/css/main.min.css',
         'extra_context': {

@@ -20,6 +20,7 @@ class ProjectCreateForm(forms.ModelForm):
         super(ProjectCreateForm, self).__init__(*args, **kwargs)
 
     def clean_urls(self):
-        if self.cleaned_data['urls'].strip().count('\r') > settings.MAX_URL_CHECK:
+        self.cleaned_data['urls'] = self.cleaned_data['urls'].strip()
+        if self.cleaned_data['urls'].count('\r') > settings.MAX_URL_CHECK:
             raise forms.ValidationError(_('You can not check more than %d urls') % settings.MAX_URL_CHECK)
         return self.cleaned_data['urls']

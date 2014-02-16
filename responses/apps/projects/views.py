@@ -18,7 +18,7 @@ class ProjectCreateView(CreateView):
 
     def get_success_url(self):
         check_urls_task.delay(self.object.pk)
-        return reverse('project_create')
+        return reverse('project_success')
 
     def get_context_data(self, *args, **kwargs):
         context = super(ProjectCreateView, self).get_context_data(*args, **kwargs)
