@@ -1,5 +1,7 @@
 <p>Hey!</p><br/>
 <p>You asked me to check a list of urls, and I'm happy to tell you that I have finished.</p>
 <p>To download the results of the check, follow the next link:</p>
-<a href="">{{ project }}</a>
+<a href="http://response.pabloleanomartinet.com{% url 'project_results' project.pk %}">
+	http://response.pabloleanomartinet.com{% url 'project_results' project.pk %}
+</a>
 <p>Have a nice day!</p>

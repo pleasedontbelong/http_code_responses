@@ -1,9 +1,26 @@
 {% extends 'base.jinja2' %}
 
 {% block content %}
-	<h1>HTTP status code checker</h1>
-	<p class="lead">Hey! this is just a toy, <strong>DON'T USE IT FOR SERIOUS WORK</strong> for your own sake</p>
-	<p>I've limited the number of urls you can check to {{ MAX_URL_CHECK }} at a time. An email will be sent to you after the check is done. Feel free to post any issue or make some improvements on the <a href="https://github.com/pleasedontbelong/http_code_responses">github repository</a>.</p>
-	<p>If you want to know more about your website you could use a more serious tool like <a href="http://www.botify.com">Botify</a>.</p>
-	{{ crispy(form, form.helper)|safe }}
+	<section class="title">
+		<h1>Status Code checker</h1>
+		<h2>Checks the HTTP status code for a list of urls</h2>
+	</section>
+	<section class="container">
+		<p class="lead">Hey! this is just a toy, <strong>DON'T USE IT FOR SERIOUS WORK</strong> for your own sake</p>
+		<p>I've limited the number of urls you can check to {{ MAX_URL_CHECK }} at a time. An email will be sent to you after the check is done. Feel free to post any issue or make some improvements on the <a href="https://github.com/pleasedontbelong/http_code_responses">github repository</a>.</p>
+		<p>If you want to know more about your website you could use a more serious tool like <a href="http://www.botify.com">Botify</a>.</p>
+	</section>
+	
+	<section class="container form">
+		{% if messages %}
+		<div class="alert alert-success">
+        <ul>
+            {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        </div>
+        {% endif %}
+		{{ crispy(form, form.helper)|safe }}
+	</section>
 {% endblock %}
