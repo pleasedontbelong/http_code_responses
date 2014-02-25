@@ -17,3 +17,9 @@ class Project(models.Model):
 
     def __unicode__(self):
         return "%s-%s" % (self.pk, self.email)
+
+
+class RequestHeaders(models.Model):
+    name = models.CharField(max_length=250)
+    value = models.CharField(max_length=250)
+    project = models.ForeignKey('Project', related_name='requests_headers')
